@@ -11,6 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet"  type="text/css" href="assets/css/estilos.css">
+		<script src="assets/js/jquery.js"></script>
+		<script type="module" src="assets/js/usuario.js"></script>
+		<script type="module" src="assets/js/index.js"></script>
+	
 		
 
     <!--Fontawesome CDN-->
@@ -30,37 +34,37 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form method="post" action="http://localhost:8080/usuario/add">
+				<form>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Nome" name="nome">
+						<input id="nome" type="text" class="form-control" placeholder="Nome" name="nome" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome@exemplo.com">
+						<input id="email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome@exemplo.com" required>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input name="senha" type="password" class="form-control" placeholder="Digite sua senha">
+						<input id="senha" name="senha" type="password" class="form-control" placeholder="Digite sua senha" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input name="confirmaSenha" type="password" class="form-control" placeholder="Repita sua senha">
+						<input id="confirmaSenha" name="confirmaSenha" type="password" class="form-control" placeholder="Repita sua senha" required>
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Lembre-se
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Cadastrar" class="btn float-right login_btn" onclick="cadastrar();">
+						<input id="btnCadastrar" value="Cadastrar" class="btn float-right login_btn" onclick="cadastrar();">
 					</div>
 				</form>
 			</div>
@@ -72,6 +76,5 @@
 		</div>
 	</div>
 </div>
-<script src="/assets/js/usuario.js"></script>
 </body>
 </html>

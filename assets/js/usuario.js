@@ -1,6 +1,83 @@
 
-// function cadastrar() {
-//     const nome = document.getElementById('exampleInputEmail1');
+import baseUrl from "../js/index.js"
 
-//     fetch("localhost:8080/usuario/add")
-// }
+const url = baseUrl + "/usuario"
+
+$(function(){
+    console.log("Carregando script de usuários")
+    cadastrarUsuario();
+    obterUsuario();
+})
+
+function cadastrarUsuario(){
+    $('#btnCadastrar').on('click', function(){    
+        console.log("Cadastrando novo usuário")
+    
+        const nome = $('#nome').val();
+        const email = $('#email').val();
+        const senha = $('#senha').val();
+        const confirmaSenha = $('#confirmaSenha').val();
+
+        if(nome == "") return alert ("Informe seu nome");
+        if(email == "") return alert ("Informe seu e-mail");
+        if(senha == "") return alert ("Informe sua senha");
+        if(senha !== confirmaSenha) return alert("Senhas informadas não coinsidem.")
+
+        const parametros = {
+            nome: nome,
+            email: email,
+            senha: senha,
+        }
+        console.log(parametros)
+        
+        $.post(`${url}/cadastrar`, parametros, usuarioEncontrado)
+        .fail( (error) => {
+            alert("Falha ao cadastrar usuário.")
+            console.log(error);
+        })
+    });
+}
+
+function redirectHomeWithSuccess(){
+    alert("Cadastro realizado com sucesso. Você será redirecionado para a pagina inicial. Seja bem vindo ao myayto.");
+    redirectHome();
+}
+
+export default redirectHome
+
+function redirectHome(){
+    window.location.href = `/home.html`;
+}
+
+function obterUsuario(){
+    $('#btnLogin').on('click', function(){
+        const email = $('#email').val();
+        const senha = $('#senha').val();
+        
+        if(email == "") return alert ("Informe seu e-mail");
+        if(senha == "") return alert ("Informe sua senha");
+    
+        const parametros = {
+            email: email, 
+            senha: senha
+        };
+    
+        $.post(`${url}/login`, parametros, usuarioEncontrado)
+        .fail( () => {
+            console.log("Usuário inválido.")
+        });
+    })
+}
+
+function usuarioEncontrado(data){
+    redirectHome();
+    iniciarSessao(data);
+}
+
+function iniciarSessao(data){
+    sessionStorage.setItem("usuario", JSON.stringify(data));
+}
+
+export function usuarioLogado(){    
+    return JSON.parse(sessionStorage.getItem("usuario"));
+}

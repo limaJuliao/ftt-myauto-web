@@ -10,6 +10,10 @@
 	<script type='text/javascript' src='assets/js/home.js'></script>
 	<script type='text/javascript' src='assets/js/jquery.js'></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/home.css">
+	<script src="assets/js/jquery.js"></script>
+	<script type="module" src="assets/js/usuario.js"></script>
+	<script type="module" src="assets/js/index.js"></script>
+	<script type="module" src="assets/js/vaiculo.js"></script>
 </head>
 
 <body oncontextmenu='return false' class='snippet-body'>
@@ -20,10 +24,11 @@
 			    <div class="container mt-2">
         <div class="row">
             <div class="col-md-2">
-                <div class="form-group"> <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                        <option selected="selected">Astra</option>
-                        <option>Corsa</option>
-                    </select> </div> <!-- /.form-group -->
+                <div class="form-group">
+					<select id="meusVeiculos" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        
+                    </select>
+				</div> <!-- /.form-group -->
                 </div> <!-- /.col -->
             </div>
         </div>
@@ -70,7 +75,7 @@
 							<span class="nav_name">Lembretes</span>
 						</a>
 					</div>
-				</div> <a href="Login.html" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+				</div> <a href="index.html" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
 						class="nav_name">Sair</span> </a>
 			</nav>
 		</div>
