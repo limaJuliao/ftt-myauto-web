@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 $(() => {
     cadastrarAbastecimento();
+    listarAbastecimento();
 })
 
 function cadastrarAbastecimento() {
@@ -25,7 +26,6 @@ function cadastrarAbastecimento() {
         let precoLitro = $('#precoLitro').val();
         let volume = $('#volume').val();
         let precoTotal = $('#precoTotal').val();
-        let veiculoId;
 
         let abastecimento = {
             data: data,
@@ -35,12 +35,28 @@ function cadastrarAbastecimento() {
             precoTotal: precoTotal,
             veiculoId: veiculoSelecionado().id
         };
-        console.log(data)
-        console.log(Date.parse(data))
-        console.log(new Date(data))
-        console.log(abastecimento);
 
         $.post(`${url}/cadastrar`, abastecimento, redirectHome)
 
+    })
+}
+
+function listarAbastecimento(){
+    $('#home').on('click', () => {
+
+        let dados = {
+            id: veiculoSelecionado().id
+        }
+
+
+        $.post(`${url}/veiculo`, dados, (response)=>{
+            response?.forEach(abastecimento => {
+                
+                console.log(JSON.stringify(abastecimento));
+                
+                // $('#tbHistorico > tbody').append("<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>");             
+                
+            });
+        })
     })
 }

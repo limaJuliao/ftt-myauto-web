@@ -5,7 +5,13 @@
 	<title>Login Page</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="assets/js/jquery.js"></script>
+	<!-- <script type='text/javascript' src='assets/js/jquery.js'></script> -->
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script type="module" src="assets/js/abastecimento.js"></script>
+    
+
+    
 	<!--Fontawesome CDN-->
 </head>
 <body>
@@ -13,18 +19,16 @@
     <div class="container mt-5">
         <p>Histórico</p>
         <div class="table-responsive">
-            <table class="table table-striped table-white text-dark table-hover">
+            <table id="tbHistorico"  class="table table-striped table-white text-dark table-hover">
                 <thead>
                     <tr>
                         <th>Data</th>
                         <th>Descrição</th>
                         <th>Odômetro</th>
-                        <th>Valor</th>
-                        
-                        <th></th>
+                        <th>Valor</th>                        
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="teste"> 
                     <tr>
                         <td colspan="2">
                             <h6>-</h6>
@@ -34,7 +38,7 @@
                         </td>
                         <td>-<br></td>
                         <td>-</td>
-                        <td><i class="fa fa-external-link external-link"></i></td>
+                        <!-- <td><i class="fa fa-external-link external-link"></i></td> -->
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -45,7 +49,7 @@
                         </td>
                         <td>-<br></td>
                         <td>-</td>
-                        <td><i class="fa fa-external-link external-link"></i></td>
+                        <!-- <td><i class="fa fa-external-link external-link"></i></td> -->
                     </tr>
                     
                 </tbody>
