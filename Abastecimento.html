@@ -2,74 +2,101 @@
 <html>
 
 <head>
-	<title>Login Page</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/veiculo.css">
-    <script type='text/javascript' src='assets/js/abastecimento.js'></script>
-    <script src="assets/js/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+    <script src="assets/js/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-	<!--Fontawesome CDN-->
+
+    <script type="module" src='assets/js/abastecimento.js'></script>
+
+    <!--Fontawesome CDN-->
 </head>
+
 <body>
-    <div class="container"> <div class=" text-center mt-3 ">
-        <h1>Cadastro de Abastecimento</h1>
-    </div>
-    <div class="row ">
-                <div class="card-header bg-light">
-                    <div class="container">
-                        <form id="contact-form" role="form">
-                            <div class="controls">
-                                <div class="row">
+    <div class="container">
+        <div class=" text-center mt-3 ">
+            <h1>Cadastro de Abastecimento</h1>
+        </div>
+        <div class="row ">
+            <div class="card-header bg-light">
+                <div class="container">
+                    <form id="contact-form" role="form">
+                        <div class="controls">
+                            <div class="row">
                                 <div class="col-md-4">
-                                        <form autocomplete="off">
-                                            <label for="form_need">Data</label> 
-                                            <div class="form-group"> <input type="text" id="dp1" class="datepicker mr-2 form-control" placeholder="Select Date" name="date"><br></div>
-                                        </form>
+                                    <form autocomplete="off">
+                                        <label for="form_need">Data</label>
+                                        <div class="form-group">
+                                            <input type="text" id="dp1" class="datepicker mr-2 form-control" placeholder="Select Date" name="date">
+                                            <br>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="form_name">Odômetro</label>
+                                        <input id="odometro" type="text" name="name" class="form-control" placeholder="Digite a placa" required="required" data-error="Valid email is required.">
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="form_name">Odômetro</label> <input  id="form_name" type="text" name="name" class="form-control" placeholder="Digite a placa" required="required" data-error="Valid email is required."> </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="form_need">Combustível</label> <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group"> <label for="form_need">Combustível</label>
+                                        <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
                                                 <option value="" selected disabled>Selecione o Tipo de Combustível</option>
                                                 <option>Gasolina</option>
                                                 <option>Álcool</option>
-                                            </select> </div>
+                                            </select>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="form_name">Preço/Litro</label> <input id="form_name" type="text" name="name" class="form-control" placeholder="Digite a Marca" required="required" data-error="Firstname is required."> </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="form_name">Litro</label> <input id="form_name" type="text" name="name"  class="form-control" placeholder="Digite o Modelo" required="required" data-error="Lastname is required."> </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group"> <label for="form_name">Preço Total</label> <input  id="form_name" type="text" name="name" class="form-control" placeholder="Digite o Ano" required="required" data-error="Valid email is required."> </div>
-                                    </div>
-                                </div>
- 
-                                <div class="row">
-                               
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group"> <label for="form_message">Observação</label> <textarea id="form_message" name="message" class="form-control" placeholder="" rows="3" required="required" data-error="Please, leave us a message."></textarea> </div>
-                                    </div>
-                                    <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Cadastrar Abastecimento"> </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="form_name">Preço/Litro</label>
+                                        <input id="precoLitro" type="text" name="name" class="form-control" placeholder="Digite a Marca" required="required" data-error="Firstname is required.">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="form_name">Litros</label>
+                                        <input id="volume" type="text" name="name" class="form-control" placeholder="Digite o Modelo" required="required" data-error="Lastname is required.">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"> <label for="form_name">Preço Total</label>
+                                        <input id="precoTotal" type="text" name="name" class="form-control" placeholder="Digite o Ano" required="required" data-error="Valid email is required.">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="form_message">Observação</label>
+                                        <textarea id="form_message" name="message" class="form-control" placeholder="" rows="3" required="required" data-error="Please, leave us a message."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <input id="btnCadastrarAbastecimento" type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Cadastrar Abastecimento">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div> <!-- /.8 -->
-        </div> <!-- /.row-->
+            </div>
+        </div>
+        <!-- /.8 -->
     </div>
-</div>
+    <!-- /.row-->
+    </div>
+    </div>
 </body>

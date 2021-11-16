@@ -1,17 +1,16 @@
 
 import baseUrl from "../js/index.js"
+import { veiculoSelecionado } from "./vaiculo.js";
 
 const url = baseUrl + "/usuario"
 
 $(function(){
-    console.log("Carregando script de usuários")
     cadastrarUsuario();
     obterUsuario();
 })
 
 function cadastrarUsuario(){
-    $('#btnCadastrar').on('click', function(){    
-        console.log("Cadastrando novo usuário")
+    $('#btnCadastrar').on('click', function(){
     
         const nome = $('#nome').val();
         const email = $('#email').val();
@@ -28,7 +27,6 @@ function cadastrarUsuario(){
             email: email,
             senha: senha,
         }
-        console.log(parametros)
         
         $.post(`${url}/cadastrar`, parametros, usuarioEncontrado)
         .fail( (error) => {
@@ -64,7 +62,7 @@ function obterUsuario(){
     
         $.post(`${url}/login`, parametros, usuarioEncontrado)
         .fail( () => {
-            console.log("Usuário inválido.")
+            alert("Usuário inválido.")
         });
     })
 }
@@ -76,6 +74,7 @@ function usuarioEncontrado(data){
 
 function iniciarSessao(data){
     sessionStorage.setItem("usuario", JSON.stringify(data));
+    veiculoSelecionado();
 }
 
 export function usuarioLogado(){    

@@ -1,3 +1,3 @@
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://myauto-web-api.azurewebsites.net`;
 export default baseUrl;
 

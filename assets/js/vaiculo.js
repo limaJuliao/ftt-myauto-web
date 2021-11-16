@@ -6,14 +6,13 @@ import { usuarioLogado } from "../js/usuario.js";
 const url = baseUrl + "/veiculo";
 
 $(function(){
-    console.log(url)
     cadastrarVeiculo();
     carregarMeusVeiculos();
+    selecionarVeiculo();
 })
 
 function cadastrarVeiculo(){
     $('#btnCadastrarVeiculo').click( () => {
-        console.log("Cadastrando novo veiculo.")
 
         const marca = $('#marca').val();
         const modelo = $('#modelo').val();
@@ -28,15 +27,17 @@ function cadastrarVeiculo(){
             modelo: modelo,
             usuarioId: usuarioLogado().id
         }
-
-        console.log(veiculo);
        
-        $.post(`${url}/cadastrar`, veiculo, redirectHome);
+        $.post(`${url}/cadastrar`, veiculo, carregarVeiculosAposCadastrarUmNovo);
     })
 }
 
+function carregarVeiculosAposCadastrarUmNovo(){
+    carregarMeusVeiculos();
+    redirectHome();
+}
+
 function carregarMeusVeiculos(){
-    console.log("Carregando meus veiculos");
     $.post(`${url}/usuario`, usuarioLogado(), preencheBoxVeiculos)
 }
 
@@ -44,7 +45,21 @@ function preencheBoxVeiculos(data){
     var listaVeiculos = document.getElementById("meusVeiculos");
     data?.forEach(veiculo => {
         var novoVeiculo = document.createElement("option");
+        novoVeiculo.value = veiculo.id;
         novoVeiculo.text = veiculo.modelo;
         listaVeiculos.options.add(novoVeiculo, 0);
     });
+}
+
+function selecionarVeiculo(){
+    $('#meusVeiculos').on('change', () => {
+        let veiculo = {
+            id: $('#meusVeiculos').val()
+        }
+        sessionStorage.setItem("veiculo", JSON.stringify(veiculo));
+    })
+}
+
+export function veiculoSelecionado() {
+    return JSON.parse(sessionStorage.getItem("veiculo"));
 }
